@@ -1,0 +1,21 @@
+// 밑에 watch sass라는 버튼이 생기는데 이는 live sass compiler에의해 생기는 버튼 
+// 이것을 누르면 css파일로 컴파일을 해준다
+//watch sass 상태에서 여기서 작업해서 저장해주면 test.css에 적용된다.
+
+
+// sass 문법
+// $color-blue라는 변수에 파란색 색상코드값을 넣은것
+$color-blue:#00f;
+$color-red:#f00;
+$color-yellow:#ff0;
+
+// 각 배경색에 맞는 색상변수를 넣어준다.
+body{
+    font-size: 20px;
+    background-color: $color-blue;
+}
+
+#box{
+    color: $color-yellow;
+    background-color: $color-red;
+}

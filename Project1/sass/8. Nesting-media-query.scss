@@ -1,0 +1,80 @@
+html {
+    font-size: 18px; 
+  }
+  
+  body {
+    margin: 20px;
+    background-color: #fff4ef;
+  }
+  
+  div {
+    color: #333;
+    padding: 20px;
+  }
+  
+  a {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  #box1 {
+    font-size: 40px;
+    background-color: #ffcccc;
+
+    &:hover{
+      background-color: #ccc;
+    }
+
+    &, &-title{
+      border-radius: 20px;
+      border: 3px solid #f00;
+      box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+    }
+    
+    &-title{
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    & > a {
+      color: #a22;
+      text-decoration: none;
+
+      &:hover{
+        color:#000;
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  #box1 #box2 {
+    font-size: 20px;
+    background-color: #e9e9e9;
+    
+    border-radius: 20px;
+    border: 3px solid #f00;
+    box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+
+    & > a {
+      color: #ee6633;
+      text-decoration: none;
+
+      &:hover {
+        color: #a22;
+        text-decoration: underline;
+      }
+    }
+  }
+
+// 반응형웹을 만드는 메디아 태그로 여기서 max-width는 0부터 500px까지의 스타일을 지정해주는것이다.
+@media screen and (max-width:500px){
+  #box1{
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width:501px) and (max-width:900px){
+  #box1{
+    font-size: 24px;
+  }
+}

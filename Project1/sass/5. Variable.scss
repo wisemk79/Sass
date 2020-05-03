@@ -1,0 +1,32 @@
+body{
+    background-color: #ddd;
+}
+
+$bg-color:purple;
+
+// 예를들어 #00f라는 공통의 색인것에 변수를 적용하고싶다면 command+d로 똑같은 색을 먼저 select한뒤에 해당 변수명을 넣어준다.
+#box1{
+    color: #ff0;
+    background-color: $bg-color;
+    width: 100px;
+}
+#box2{
+    color: #f00;
+    background-color: $bg-color;
+    width: 100px;
+}
+#box3{
+    color: #ff0;
+    background-color: $bg-color;
+    width: 300px;
+}
+#box4{
+    color: #f00;
+    background-color: $bg-color;
+    width: 300px;
+}
+#box5{
+    color: #0f0;
+    background-color: $bg-color;
+    width: 500px;
+}

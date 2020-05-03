@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link tab하면 css와 연결하는 링크가 생성되고 -->
+    <link rel="stylesheet" href="sass/4. LiveSassCompiler.css">
+</head>
+<body>
+    <!-- sass란 작성하는데있어서 구조적차이가 있고 복잡하다.
+         scss는 css와 유사하게 작성하는거라 쉬움
+        확장자는 ddd.scss로 만들어진다.
+        
+        이것은 live sass compiler로인해 ddd.css로 변환이된다.
+        -->
+    <div id="box">test test test 1111 aaaa</div>
+
+    <!-- 
+        "savePath": 는 컴파일된 파일을 저장하는곳
+
+        "liveSassCompile.settings.generateMap": 
+      false, <--false로 하면 map파일이 생성되지 않는다.
+{
+    "liveSassCompile.settings.formats":[
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "~/../css"
+        }
+    ],
+    "liveSassCompile.settings.excludeList": [ 
+        "**/node_modules/**",
+        ".vscode/**" 
+    ],
+    "liveSassCompile.settings.generateMap": 
+      false,
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "editor.fontSize": 14,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "emmet.triggerExpansionOnTab": true,
+    "editor.tabCompletion": "on"
+}
+
+     -->
+</body>
+</html>

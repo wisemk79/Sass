@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAYA,AAAA,IAAI,CAAA;EACA,SAAS,EAAE,IAAI;EACf,gBAAgB,EAPR,IAAI;CAQf;;AAED,AAAA,IAAI,CAAA;EACA,KAAK,EATK,IAAI;EAUd,gBAAgB,EAXT,IAAI;CAYd",
+    "sources": [
+        "4. LiveSassCompiler.scss"
+    ],
+    "names": [],
+    "file": "4. LiveSassCompiler.css"
+}
