@@ -21,8 +21,19 @@ html {
     font-size: 40px;
     background-color: #ffcccc;
 
+    @media screen and (max-width:500px){
+      font-size: 20px;
+    }
+
+    @media screen and (min-width:501px) and (max-width:900px){
+        font-size: 30px;
+    }
+     
     &:hover{
       background-color: #ccc;
+      @media screen and (max-width:500px){
+        background-color: red;
+      }
     }
 
     &, &-title{
@@ -67,14 +78,15 @@ html {
   }
 
 // 반응형웹을 만드는 메디아 태그로 여기서 max-width는 0부터 500px까지의 스타일을 지정해주는것이다.
-@media screen and (max-width:500px){
-  #box1{
-    font-size: 14px;
-  }
-}
+// 아래의 코드 역시 nesting해줄 수 있다.
+// @media screen and (max-width:500px){
+//   #box1{
+//     font-size: 14px;
+//   }
+// }
 
-@media screen and (min-width:501px) and (max-width:900px){
-  #box1{
-    font-size: 24px;
-  }
-}
+// @media screen and (min-width:501px) and (max-width:900px){
+//   #box1{
+//     font-size: 24px;
+//   }
+// }

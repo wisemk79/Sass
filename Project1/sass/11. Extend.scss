@@ -1,0 +1,102 @@
+//mixin <--속성은 같은데 값이 다를때
+@mixin fontSizeBgColor($fontSize, $bgColor) {
+  font-size: $fontSize;
+  background-color: $bgColor;
+}
+
+@mixin fontSizeBgColor2($fontSize:20px, $bgColor:blue) {
+  font-size: $fontSize;
+  background-color: $bgColor;
+}
+
+@mixin linkStyle($textColor, $textDeco:none) {
+  color: $textColor;
+  text-decoration: $textDeco;
+}
+
+//extend <--속성과 값이 모두 같을때
+%boxshape{
+  border-radius: 20px;
+  border: 3px solid #f00;
+  box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+}
+
+html {
+    font-size: 18px; 
+  }
+  
+  body {
+    margin: 20px;
+    background-color: #fff4ef;
+  }
+  
+  div {
+    color: #333;
+    padding: 20px;
+  }
+  
+  a {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  #box1 {
+    @include fontSizeBgColor(40px,#ffcccc);
+
+    @media screen and (max-width:500px){
+      font-size: 20px;
+    }
+
+    @media screen and (min-width:501px) and (max-width:900px){
+        font-size: 30px;
+    }
+     
+    &:hover{
+      background-color: #ccc;
+      @media screen and (max-width:500px){
+        background-color: red;
+      }
+    }
+
+    &, &-title{
+      // 여기있는 이 속성들은 box2에서도 완전 똑같이 사용되는데
+      // 똑같이 사용되는부분을 재 사용할 수 있도록 하게해주는 것이 extend이다.
+      // border-radius: 20px;
+      // border: 3px solid #f00;
+      // box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+
+      //extend를 사용할 땐 @extend이다.
+      @extend %boxshape;
+    }
+    
+    &-title{
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    & > a {
+      @include linkStyle(#a22,none );
+
+      &:hover{
+        @include linkStyle(#000, underline );
+      }
+    }
+  }
+  
+
+  #box1 #box2 {
+    @include fontSizeBgColor2();
+
+    @extend %boxshape;
+    // border-radius: 20px;
+    // border: 3px solid #f00;
+    // box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+
+    & > a {
+      @include linkStyle(#ee6633,none );
+
+      &:hover {
+        @include linkStyle(#a22,underline );
+      }
+    }
+  }

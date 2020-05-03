@@ -1,0 +1,23 @@
+//아래의코드들을 12.Partial.scss에서 직접가져와도되지만 거기에있는 코드를 재사용한다면 코드의 양이 줄어들을 것이다.
+//재사용을위해 _12.mixin이라는 파일을 생성해보자, 앞에 _언더바가 들어가게되면 이 scss파일은 컴파일되지 않는다.
+// @mixin fontSizeBgColor($fontSize, $bgColor) {
+//     font-size: $fontSize;
+//     background-color: $bgColor;
+//   }
+  
+//   @mixin fontSizeBgColor2($fontSize:20px, $bgColor:blue) {
+//     font-size: $fontSize;
+//     background-color: $bgColor;
+//   }
+
+
+//_12.mixin에있는 믹스인을 사용할때는 @import를 사용하고 _를 제외한 나머지 이름을 쓴다.
+//import 할때 에러가나면 Color Highlight Extention을 사용안함으로 바꿔주면 에러가 나지 않는다.
+//대신 colorize 를 사용하자
+@import "12.mixin";
+
+.ttttt{
+    color:blue;
+    @include fontSizeBgColor(100px, yellow);
+    @extend %boxshape;
+}

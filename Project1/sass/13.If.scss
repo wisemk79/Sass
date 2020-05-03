@@ -1,0 +1,33 @@
+body{
+    margin:30px;
+}
+
+@mixin textAndBgColor($textColor, $bgColor) {
+    color: $textColor;
+    background-color: $bgColor;
+}
+// if 조건을 걸어줘서 조건에 따라 색을 변경시켜준다
+@mixin theme($mood) {
+    @if $mood == 'light'{
+        @include textAndBgColor(#333,#ff0);
+    }
+    @else if $mood == 'dark'{
+        @include textAndBgColor(#fff,#000);
+    }
+    @else {
+        @include textAndBgColor(#f00,#aaa);
+    }
+}
+
+
+#box1{
+    @include theme('light')
+}
+
+#box2{
+    @include theme('dark')
+}
+
+#box3{
+    @include theme('dsfasfd')
+}

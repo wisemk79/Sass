@@ -1,0 +1,59 @@
+//mixin
+@mixin width-height-padding($w, $h, $p) {
+    width: $w;
+    height: $h;
+    padding: $p;
+}
+
+@mixin pos-abs-center() {
+    // transform은 자기자신이 기준이되서 움직임.
+    //아래의 코드는 화면의 정중앙에 맞춰주기위해 해주는것
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left:50%;
+    top: 50%;
+}
+
+//좌우로만 가운데정렬
+@mixin pos-abs-center-horizental() {
+    position: absolute;
+    transform: translateX(-50%);
+    left:50%;
+}
+
+//상하로만 가운데정렬
+@mixin pos-abs-center-vertical() {
+    position: absolute;
+    transform: translateY(-50%);
+    top:50%;
+}
+
+// 아래와 같이 @content를 쓰게되면 이 mixin안에 다른 css구문을 작성할 수 있게된다.
+//반응형 웹 화면 구분
+@mixin mq($screen-width) {
+    //desktop-big
+    @if $screen-width == 'desktop-big'{
+        @media screen and (min-width:1201px){
+            @content;
+        }
+    }
+    @else if $screen-width == 'tablet-land'{
+        //tablet-land
+        @media screen and (min-width:601px) and (max-width:899px){
+            @content;
+        }
+    }
+    @else if $screen-width == 'phone'{
+        //phone
+        @media screen and (max-width:600px){
+            @content;
+        }
+    }
+    @else{
+        //desktop기본
+    }
+    
+    
+    
+    
+}

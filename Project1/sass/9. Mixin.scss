@@ -1,0 +1,104 @@
+//mixin을 정의 <-- 함수와 비슷하게 인자를 준다.
+@mixin fontSizeBgColor($fontSize, $bgColor) {
+  font-size: $fontSize;
+  background-color: $bgColor;
+}
+
+//만약 인자를 안주고 디폴트값을 기본으로 지정해주고 싶다면 아래와같이 인자값을 따로 지정하면된다.
+@mixin fontSizeBgColor2($fontSize:20px, $bgColor:blue) {
+  font-size: $fontSize;
+  background-color: $bgColor;
+}
+
+@mixin linkStyle($textColor, $textDeco:none) {
+  color: $textColor;
+  text-decoration: $textDeco;
+}
+
+html {
+    font-size: 18px; 
+  }
+  
+  body {
+    margin: 20px;
+    background-color: #fff4ef;
+  }
+  
+  div {
+    color: #333;
+    padding: 20px;
+  }
+  
+  a {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  #box1 {
+    //위에서 만든 mixin을 @include를 이용하여 사용한다.
+    @include fontSizeBgColor(40px,#ffcccc);
+    // font-size: 40px;
+    // background-color: #ffcccc;
+
+    @media screen and (max-width:500px){
+      font-size: 20px;
+    }
+
+    @media screen and (min-width:501px) and (max-width:900px){
+        font-size: 30px;
+    }
+     
+    &:hover{
+      background-color: #ccc;
+      @media screen and (max-width:500px){
+        background-color: red;
+      }
+    }
+
+    &, &-title{
+      border-radius: 20px;
+      border: 3px solid #f00;
+      box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+    }
+    
+    &-title{
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    & > a {
+      @include linkStyle(#a22,none );
+      // color: #a22;
+      // text-decoration: none;
+
+      &:hover{
+        @include linkStyle(#000, underline );
+        // color:#000;
+        // text-decoration: underline;
+      }
+    }
+  }
+  
+
+  // Mixin이란 아래의 font-size나 background-color와 같은 속성은 똑같은데 값이다를 때 사용하는 sass문법이다.
+  #box1 #box2 {
+    @include fontSizeBgColor2();
+    // font-size: 20px;
+    // background-color: #e9e9e9;
+
+    border-radius: 20px;
+    border: 3px solid #f00;
+    box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.75);
+
+    & > a {
+      @include linkStyle(#ee6633,none );
+      // color: #ee6633;
+      // text-decoration: none;
+
+      &:hover {
+        @include linkStyle(#a22,underline );
+        // color: #a22;
+        // text-decoration: underline;
+      }
+    }
+  }

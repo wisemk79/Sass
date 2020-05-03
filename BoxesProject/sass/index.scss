@@ -1,0 +1,88 @@
+//해당 폴더에서 톱니바퀴 - 설정 - 작업영역 - 확장 에서 setting.json설정에 들어가서 아래 코드를 써주면 css폴더에 따로 css파일이 생성되고 sass폴더에 sass파일이 생성된다.
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/base";
+
+
+//Nesting
+.box{
+    @include pos-abs-center();
+    // @include pos-abs-center-horizental();
+    // @include pos-abs-center-vertical();
+    @include width-height-padding(300px, 300px, 20px);
+    
+    &, .box-inner{
+    border: 3px solid $border-color;
+    //desktop-big
+    }
+
+    @include mq('desktop-big'){
+        border: 10px solid $border-color;
+    }
+    //tablet-land
+    @include mq('tablet-land'){
+        border: 2px solid $border-color;
+    }
+    //phone
+    @include mq('phone'){
+        border: none;
+    }
+
+    //&-inner를 써도 같은 의미가된다.
+    .box-inner{
+        // 여기서 initial은 초기값(default값)이다
+        @include width-height-padding(initial, 40px, 10px);
+        background-color: $color-gray;
+
+            //desktop-big
+            @include mq('desktop-big'){
+                height: 50px;
+            }
+            //tablet-land
+            @include mq('tablet-land'){
+                height: 30px;
+            }
+            //phone
+            @include mq('phone'){
+                height: 10px;
+            }
+
+        .box-inner-title{
+            font-size: 30px;
+            color: $color-white;
+            background-color: rgb(102, 101, 101);
+
+            @include mq('desktop-big'){
+                font-size: 40px;
+            }
+            //tablet-land
+            @include mq('tablet-land'){
+                font-size: 20px;
+            }
+            //phone
+            @include mq('phone'){
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+
+
+//900~1200px 표준 데스크탑 크기 default
+
+//데스크탑 큰화면 기준
+@media screen and (min-width:1201px){
+
+}
+
+//태블릿 화면 가로로 놨을때 기준
+@media screen and (min-width:601px) and (max-width:899px){
+    
+}
+
+//600이하 모바일, 태블릿 세로기준
+@media screen and (max-width:600px){
+
+}
