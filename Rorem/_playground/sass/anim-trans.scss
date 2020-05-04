@@ -1,0 +1,48 @@
+// transition
+.btn{
+    font-size: 30px;
+    text-decoration: none;
+    transition: all .5s;//.5라고 하면 0.5와 같은의미
+    // transition: font-size 5s, opacity 10s;
+    // transition: all 5s;//all은 아래에서 font-size,text-decoration, 
+    //opacity등 호버시 바뀌는 모든것을 의미하고 5s는 5초간의 시간을 의미한다.
+    //여기서 all이 아닌 font-size라고 지정하면 font-size만 애니메이션이 지정된다.
+
+    &:hover{
+        font-size: 50px;
+        text-decoration: underline;
+        opacity: 0.2;//투명도 1이 불투명 0이 투명
+    }
+}
+
+
+// animation <-- @keyframes로시작  <--sass에서 제공하는 기능이 아닌 css3에서 제공하는 애니메이션기능이다
+@keyframes anim1{
+    //시작부분
+    0%{
+        //해당 요소의 위치(translate)를 바꾸거나 크기(scale)를 바꾸는 속성
+        transform: translate(100px, -100px);//translate(x, y) x는 오른쪽이 + 왼쪽이 - ,  y는 위쪽이 - 아래쪽이 +
+        opacity: .2;//이렇게하면 fadein과 비슷한 효과가 일어남
+    }
+
+    //5초를 기준으로 중간지점에서 어떤 상태로 바꿔주는 기능
+    50%{
+        opacity: 1;
+    }
+
+    //끝부분
+    100%{
+        opacity: .1;
+    }
+}
+
+#box1{
+    animation-name: anim1;//anim1의 효과를 주겠다
+    animation-duration: 5s;//애니메이션이 지속되는 시간
+    //애니메이션효과가 끝나면 처음상태로 되돌아오는데, 마지막상태를 유지(forward)하고 싶다면 아래와같이한다.
+    animation-fill-mode: forwards;// backward는 delay시간이 있을때, 원래 오브젝트 위치에서 시작하지 않고 keyframe 처음위치 0%에서 애니메이션이 시작하도록 지정해주는 속성이다.
+    //만약, 애니메이션 효과를 반복하고싶다면 아래와 같이한다.
+    animation-iteration-count: 3;//3번 반복
+    //애니메이션 시작시간을 늦추는 속성
+    animation-delay: 3s;
+}
