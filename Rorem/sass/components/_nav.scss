@@ -1,0 +1,164 @@
+.nav{
+    &-checkbox{
+        display: none;//체크박스가 안보이는 것일뿐 체크박스 기능을 사용할 수 있다.
+    }
+
+    &-button{
+        background-color: #c4e3ff;
+        width: 7rem;
+        height: 6rem;
+        position: fixed;
+        top:7rem;
+        right: 8rem;
+        z-index: 2000;
+        cursor: pointer;
+        border-radius: 2px;
+        // box shadow generator 사이트로 들어가면 코드가 많이있다.
+        box-shadow: 0 1rem 1rem rgba(#000, 0.1);
+        text-align: center;
+    }
+
+    &-bg{
+        // css gradient generator (원형그라데이션 radial)
+        background-image: radial-gradient($color-primary, $color-secondary);
+        width: 7rem;
+        height: 6rem;
+        position: fixed;
+        top:7rem;
+        right: 8rem;
+        z-index: 1000;
+        //트랜지션은 변화 대상에 걸어줄것
+        transition: all 1s;
+    }
+
+
+    // ~은 같은 형제 자식요소 지정가능
+    &-checkbox:checked ~ &-bg{
+        //체크박스가 체크되면, 크기를 대폭 늘린다.
+        transform: scale(80);
+    }
+
+    //nav-icon (span태그) <-button에서 text-ailgn center해줘야함 <-- 중요하다
+    &-icon{
+        position: relative;
+        margin-top: 3rem;
+
+        &::before{
+            top:-0.8rem;
+        }
+
+        &::after{
+            top:0.8rem;
+        }
+
+        &::before, &::after{
+            content:'';
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        //이렇게하면 선이 생기는데 3개가 포개져있기 때문에 위에서 position absolute로 선 2개의 위치를 조정해준다.
+        & , &::before, &::after{
+            display: inline-block;//width-height지정할 수 있다.
+            width: 3rem;
+            height: 2px;
+            background-color: #333;
+        }
+
+
+    }
+
+    //삼선 사이 벌어지는 애니메이션
+    &-button:hover &-icon::before{
+        top:-1rem;
+    }
+    &-button:hover &-icon::after{
+        top: 1rem;
+    }
+
+
+    //체크가 되면 x로 변하는 버튼 애니메이션
+    &-checkbox:checked ~ &-button &-icon{//가운데선 사라짐
+        background-color: transparent;//가운데선이 투명하게됨(transparent)
+    }
+
+    &-checkbox:checked ~ &-button &-icon::before{//대각선 크로스
+        top:0;//top속성 초기화시켜 가운데 정렬
+        transform: rotate(135deg);//기울이기
+    }
+
+    &-checkbox:checked ~ &-button &-icon::after{//대각선 크로스
+        top:0;
+        transform: rotate(-135deg);//기울이기
+    }
+
+    //nav body
+    &-body{
+        position: fixed;
+        //왼쪽 바깥에서 오도록 하기위해
+        top:0;
+        left: -120%;
+        width: 100vw;
+        height:100vh;
+        // background-color: red;//영역확인용
+        z-index: 1500;
+        transition: all .8s;
+        opacity: 0;
+    }
+
+    &-list{
+        position: relative;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        // background-color: #aaa;//영역확인용
+        width: 100%;
+        text-align: center;
+    }
+
+    &-item{
+
+    }
+
+    &-link{
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: 300;
+        padding: 1rem 2rem;
+        color: $color-white;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        //120deg만큼 기울이고 0~50%는 투명하게 50%는 흰색을적용한다.
+        background-image: linear-gradient(
+            120deg,
+            transparent 0%,
+            transparent 50%,
+            $color-white 50%
+        );
+        //background-size는 최대한 크기를 키워 화면 바깥으로보내진다 <--왜냐하면 투명도 영역이 엄청 커지기 떄문
+        background-size: 220%;
+
+        //링크 애니메이션 시간
+        transition: all .4s;
+
+        //링크에 마우스 오버시 텍스트 색은 흰색, background-position은 100%로 만든다
+        &:hover{
+            color:$color-primary;
+            background-position: 100%;
+            transform: translateX(1rem);//오른쪽으로 살짝움직이도록 
+        }
+        
+        span{
+            display: inline-block;//마진을 주기위해서
+            margin-right: 1.5rem;
+        }
+    }
+
+    &-checkbox:checked ~ &-body{
+        left:0;
+        opacity: 1;
+    }
+}

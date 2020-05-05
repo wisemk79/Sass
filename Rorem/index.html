@@ -1,26 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- lorem ipsum generate사이트로 가면 아무말잔치 텍스트를 얻을수 있다! -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
     <title>Lorem</title>
-</head>
-<body>
+  </head>
+  <body>
+    <nav class="nav">
+      <input type="checkbox" class="nav-checkbox" id="nav-toggle" />
+      <!-- nav-toggle을 위한 라벨 -->
+      <label for="nav-toggle" class="nav-button">
+        <!-- span은 버튼의 줄모양 -->
+        <span class="nav-icon">&nbsp;</span>
+      </label>
+
+      <!-- 버튼클릭시 background나오는것 -->
+      <div class="nav-bg">&nbsp;</div>
+
+      <div class="nav-body">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="nav-link"><span>01</span>About Lorem</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><span>02</span>Commadas sanod</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><span>03</span>dolores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <header>
-        <div id="logo-text">
-            Lorem
+      <div id="logo-text">
+        Lorem
+      </div>
+      <div id="header-text">
+        <div id="header-text-main">What is <br />Lorem Ipsum</div>
+        <div id="header-text-sub">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
         </div>
-        <div id="header-text">
-            <div id="header-text-main">
-                What is <br/>Lorem Ipsum
-            </div>
-            <div id="header-text-sub">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            </div>
-        </div>
+      </div>
     </header>
-    
-</body>
+
+    <main>
+      <section id="section-about">
+        <h2>What is Lorem Ipsum</h2>
+        <div id="section-about-words">
+          <h3>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </h3>
+          <p>
+            Lorem Ipsum has been the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </p>
+          <a href="#" class="btn-text u-margin-right-small">Read More</a>
+          <a href="#" class="btn-text box">Read More</a>
+        </div>
+        <div id="section-about-photo">
+          <div class="photo">
+            <img src="images/photo-1.jpg" alt="photo1" />
+          </div>
+          <div class="photo">
+            <img src="images/photo-2.jpg" alt="photo2" />
+          </div>
+        </div>
+      </section>
+
+      <section id="section-etc">
+        <div id="etc1" class="etc">
+          <!-- 아이콘폰트는 구글에 google meterial icon css를 쳐서 들어가서 - icon font for web
+                    에서 setup method에 있는 링크를 복사한다.
+
+                    해당 링크를 base에서 import해준다음에 meterial.io/icons 에 들어가서 골라 사용하면된다
+
+                    만약 loyalty라는 아이콘이 맘에든다면, 
+                    <span class="material-icons">loyalty</span>
+                -->
+          <div class="etc-icon">
+            <span class="material-icons">loyalty</span>
+          </div>
+          <div class="etc-text">
+            <h3>quisquam est qui dolorem</h3>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum
+            </p>
+          </div>
+        </div>
+        <div id="etc2" class="etc">
+          <div class="etc-icon">
+            <span class="material-icons">code</span>
+          </div>
+          <div class="etc-text">
+            <h3>quisquam est qui dolorem</h3>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum
+            </p>
+          </div>
+        </div>
+        <div id="etc3" class="etc">
+          <div class="etc-icon">
+            <span class="material-icons">delete</span>
+          </div>
+          <div class="etc-text">
+            <h3>quisquam est qui dolorem</h3>
+            <p>
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div id="logo-text-footer">Lorem</div>
+      <div id="copyright">
+        <p>
+          The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+          below for those interested. Sections 1.10.32 and 1.10.33 from "de
+          Finibus Bonorum et Malorum" by Cicero are also reproduced in their
+          exact original form, accompanied by English versions from the 1914
+          translation by H. Rackham.
+        </p>
+        <!-- 여기서 &copy;는 c 동그라미 아이콘이 들어간다 -->
+        <p>Copyright &copy; 2020 Lorem. All Rightss</p>
+      </div>
+    </footer>
+  </body>
 </html>

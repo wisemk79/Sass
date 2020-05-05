@@ -40,7 +40,8 @@
     animation-name: anim1;//anim1의 효과를 주겠다
     animation-duration: 5s;//애니메이션이 지속되는 시간
     //애니메이션효과가 끝나면 처음상태로 되돌아오는데, 마지막상태를 유지(forward)하고 싶다면 아래와같이한다.
-    animation-fill-mode: forwards;// backward는 delay시간이 있을때, 원래 오브젝트 위치에서 시작하지 않고 keyframe 처음위치 0%에서 애니메이션이 시작하도록 지정해주는 속성이다.
+    animation-fill-mode: forwards;// backwards는 delay시간이 있을때, 원래 오브젝트 위치에서 시작하지 않고 keyframe 처음위치 0%에서 애니메이션이 시작하도록 지정해주는 속성이다.
+    //both는 backwords로 시작해서 forwards로 끝나는 속성이다
     //만약, 애니메이션 효과를 반복하고싶다면 아래와 같이한다.
     animation-iteration-count: 3;//3번 반복
     //애니메이션 시작시간을 늦추는 속성

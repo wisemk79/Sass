@@ -1,0 +1,24 @@
+h2{
+    padding:1rem 0;
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(left, $color-primary, $color-white);
+    //위에서 처리한 백그라운드 그라데이션을 텍스트에만 적용시키는 문구
+    -webkit-background-clip: text;
+    //그라데이션 처리를 마스크 처리하여 나타내기위한 문구
+    -webkit-text-fill-color: transparent;
+    transition: all .5s;
+
+    &:hover{
+        padding-left: 1.5rem;
+    }
+
+    h3{
+        padding: .5rem 0;
+        color: $color-gray-dark;
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}

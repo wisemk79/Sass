@@ -1,0 +1,48 @@
+footer{
+    color:$color-gray-light;
+    background-color: $color-blue-dark;
+    padding: 9rem 7rem 3rem 10rem;
+
+    @include clearfix();
+    
+    @include mq('small-screen3'){
+        padding: 9rem 7rem 3rem 7rem;
+    }
+    #logo-text-footer{
+        width: 25%;
+        font-size: 4rem;
+        font-family: sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
+        float: left;
+
+        @include mq('small-screen3'){
+            width:40rem;
+            margin-right: 6rem;
+        }
+    }
+
+    #copyright{
+        width: 75%;
+        font-size: 1.2rem;
+        float: left;
+
+        @include mq('small-screen3'){
+            width: 60%;
+        }
+
+        p:nth-child(1){
+            margin-bottom: 20px;
+            word-break: break-all;//단어가 길어서 줄바꿈이 되도 글자가 계속 이어진다.
+            text-align: justify;//줄바꿈 양쪽 가장자리에 딱 맞게 정렬
+            column-count: 3;//자르는 단의 수
+            column-gap: 3rem;//위에 column-count로 자른 단 사이의 너비 조정
+            column-rule-style: dashed;//자른 단 사이의 선
+            column-rule-width: 1px;//자르는 선 길이
+            column-rule-color: #888;//자르는 선 색깔
+        }
+    }
+
+
+  
+}

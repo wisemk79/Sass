@@ -1,0 +1,180 @@
+main{
+    
+    #section-about{
+        float: left;
+        background-color: #ededed;
+        padding: 7rem 0 6.5rem 6rem;
+        @include clearfix();
+        width: 66.66666%;
+        min-height:42rem;
+
+        @include mq('small-screen1'){
+            width:100%
+        }
+
+        @include mq('small-screen2'){
+            width:100%;
+            height:54rem;
+            padding: 7rem 6rem 6.5rem 6rem;
+        }
+
+        @include mq('small-screen3'){
+            width:100%;
+            height:60rem;
+            padding: 7rem 6rem 6.5rem 6rem;
+        }
+
+        &-words{
+            width: 65%;
+            float: left;
+
+            @include mq('small-screen2'){
+                width: 100%;
+            }
+
+            @include mq('small-screen3'){
+                width: 100%;
+            }
+
+            p{
+                padding: 1.5rem 0;
+                font-size: 1.4rem;
+                font-weight: 700;
+                text-align: justify;
+            }
+        }
+
+        &-photo{
+            position: relative;
+            width:35%;
+            float: left; 
+
+            @include mq('small-screen2'){
+                width: 100%;
+            }
+
+            .photo{
+                position: absolute;
+                width: 18rem;
+                height: 12rem;
+                transition: all .5s;
+
+                @include mq('small-screen2'){
+                    top: 3rem !important;
+                    left: 50% !important;
+                }
+
+                @include mq('small-screen3'){
+                    top: 3rem !important;
+                    left: 160% !important;
+                }
+
+                //float상태에서 이미지 두개가 겹쳐있을때 수정하는것
+                &:nth-child(1){
+                    left: 1rem;
+                    top: 3rem;
+                    @include mq('small-screen2'){
+                        transform: translateX(-120%);
+                    }
+
+                    @include mq('small-screen3'){
+                        transform: translateX(-120%);
+                    }
+                }
+                &:nth-child(2){
+                    left: 6rem;
+                    top: 10rem;
+                }
+
+                &:hover{
+                    transform:scale(1.1);
+                    padding: 10px;
+                    border: 2px solid $color-primary;
+                    z-index: 10;
+                    transition: all .5s;
+                }
+
+                //이미지 크기에 맞춰 조절
+                img{
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: 3px 3px 9px 0px rgba(0,0,0,0.5);
+                }
+            }
+        }
+    }
+
+    //안의 자식태그가 etc1,2,3으로 연속되어있다.
+    #section-etc{
+        float: left;
+        width: 33.33334%;
+        // id가 etc로 시작되는것을 선택한다. id뿐만아니라 태그의 여러가지 속성을 선택할 수 있다.
+        [id^="etc"]{
+            height:14rem;
+        }
+
+
+        @include mq('small-screen1'){
+            width: 100%;
+        }
+
+        @include mq('small-screen2'){
+            width: 100%;
+        }
+
+        @include mq('small-screen3'){
+            width: 100%;
+        }
+
+        .etc{
+        @include mq('small-screen1'){
+            width: 33.33333%;
+            float: left;
+        }
+
+        @include mq('small-screen2'){
+            width: 33.33333%;
+            float: left;
+            height: 22rem;
+        }
+
+
+
+            &:nth-child(1){
+                background-color: $color-blue-1;
+            }
+
+            &:nth-child(2){
+                background-color: $color-blue-2;
+            }
+
+            &:nth-child(3){
+                background-color: $color-blue-3;
+            }
+        }
+
+        .etc-icon{
+            float: left;
+            text-align: center;
+            padding-top:3.5rem;
+            width: 30%;
+
+            span{
+                font-size: 6rem;
+            }
+        }
+
+        .etc-text{
+            width: 70%;
+            float: left;
+            padding-top: 2rem;
+            p{
+                margin: 0.5rem 0;
+                padding-right: 3.5rem;
+                text-align: justify;
+                font-size: 14px;
+            }
+        }
+        
+    }
+}

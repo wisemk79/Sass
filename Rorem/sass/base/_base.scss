@@ -1,0 +1,22 @@
+//나눔고딕 구글폰트 참조
+// @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap&subset=korean');
+
+//구글 아이콘 폰트
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+//모든 요소들을 초기화 시켜주기위해 설정한다
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;// 1rem = 10px == 16px*62.5%
+}
+
+body{
+    padding: 3rem;
+    font-family: 'Malgun Gothic', sans-serif;
+}

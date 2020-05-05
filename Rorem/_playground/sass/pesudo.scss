@@ -1,0 +1,55 @@
+@mixin clearfix(){
+    //float했을때 부모 영역을 인지 못하는 상황이 발생하는경우 아래와같이 content로 빈 영역을 만든다음 clear해준다
+    &::after{
+        content:'';
+        display: block;
+        clear: left;
+    }
+}
+
+#box{
+    background-color: yellow;
+    width: 300px;
+    height:300px;
+    color:white;
+
+    //가상 엘레먼트 <-- 내용의 앞, 뒤에 글자를 만들어주는 것 css문법임
+    &::before{
+        content: 'before';
+        display: block;//div처럼 독립된 요소로 바뀜
+        background-color: red;
+    }
+    &::after{
+        content: 'after';
+        display: block;
+        background-color: green;
+    }
+}
+
+.box-parent{
+
+    padding: 20px;
+    background-color: blue;
+
+    .box-child{
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        border: 1px solid #ff0;
+        float: left;
+    }
+
+    //마지막 자식 태그를 제외한 나머지에 적용한다 (not)
+    .box-child:not(:last-child){
+        margin-right: 40px;
+    }
+
+    @include clearfix();
+
+    //div를 하나추가하고 clear left를 해주면 부모 태그의 영역을 인지 시켜줄 수 있다
+    // .clearfix{
+    //     clear:left;
+    // }
+}
+
+

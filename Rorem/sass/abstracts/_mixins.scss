@@ -1,0 +1,27 @@
+@mixin clearfix(){
+    &::after{
+        content:'';
+        display: block;
+        clear: left;
+    }
+}
+
+
+
+@mixin mq($screen-width) {
+    @if $screen-width == 'small-screen1'{
+        @media screen and (min-width:900px) and (max-width:1200px){
+            @content;
+        }
+    }
+    @else if $screen-width == 'small-screen2'{
+        @media screen and (min-width:701px) and (max-width:899px){
+            @content;
+        }
+    }
+    @else if $screen-width == 'small-screen3'{
+        @media screen and (max-width:700px){
+            @content;
+        }
+    }
+}
