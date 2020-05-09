@@ -2,7 +2,7 @@ footer{
     color:$color-gray-light;
     background-color: $color-blue-dark;
     padding: 9rem 7rem 3rem 10rem;
-
+    float: left;
     @include clearfix();
     
     @include mq('small-screen3'){

@@ -564,6 +564,7 @@ footer {
   color: #b9b9b9;
   background-color: #3f4a56;
   padding: 9rem 7rem 3rem 10rem;
+  float: left;
 }
 
 footer::after {
